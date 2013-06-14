@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="DEBUG" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss,SSS} [%t] %-5p [%C{1}.%M(%L)] %x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="DAILY_ROLLING_FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File" value="logs/tooyoung-lang.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss,SSS} [%t] %-5p [%C.%M(%L)] %x - %m%n" />
+		</layout>
+	</appender>
+
+	<category name="org" additivity="true">
+		<priority value="INFO" />
+	</category>
+	<category name="httpclient" additivity="true">
+		<priority value="INFO" />
+	</category>
+	<category name="net" additivity="true">
+		<priority value="INFO" />
+	</category>
+	<category name="com.tooyoung.memcache" additivity="true">
+		<priority value="INFO" />
+	</category>
+
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DAILY_ROLLING_FILE" />
+	</root>
+</log4j:configuration>
