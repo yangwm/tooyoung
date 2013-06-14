@@ -15,8 +15,6 @@
 		<module>tooyoung-id</module>
 		<module>tooyoung-common</module>
 		<module>tooyoung-memcacheproxy</module>
-		<module>tooyoung-web</module>
-		<module>tooyoung-web-test</module>
 		<module>tooyoung-redis</module>
 	</modules>
 
