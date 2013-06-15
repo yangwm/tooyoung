@@ -26,7 +26,7 @@
 	<category name="net" additivity="true">
 		<priority value="INFO" />
 	</category>
-	<category name="com.tooyoung.memcache" additivity="true">
+	<category name="cc.tooyoung.memcache" additivity="true">
 		<priority value="INFO" />
 	</category>	
 

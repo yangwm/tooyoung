@@ -4,20 +4,20 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.tooyoung</groupId>
+		<groupId>cc.tooyoung</groupId>
 		<artifactId>tooyoung</artifactId>
 		<version>0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.tooyoung</groupId>
+	<groupId>cc.tooyoung</groupId>
 	<artifactId>tooyoung-memcache</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>tooyoung-memcache</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.tooyoung</groupId>
+			<groupId>cc.tooyoung</groupId>
 			<artifactId>tooyoung-lang</artifactId>
 			<version>${tooyoung.version}</version>
 		</dependency>
