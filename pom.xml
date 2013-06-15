@@ -12,10 +12,13 @@
 		<module>tooyoung-lang</module>
 		<module>tooyoung-algorithm</module>
 		<module>tooyoung-memcache</module>
+		<module>tooyoung-redis</module>
 		<module>tooyoung-id</module>
 		<module>tooyoung-common</module>
+		
+		<module>tooyoung-db</module>
 		<module>tooyoung-memcacheproxy</module>
-		<module>tooyoung-redis</module>
+		<module>tooyoung-web</module>
 	</modules>
 
 	<build>
