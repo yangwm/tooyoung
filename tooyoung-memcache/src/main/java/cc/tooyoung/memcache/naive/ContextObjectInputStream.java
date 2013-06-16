@@ -22,7 +22,7 @@
  * @author Vin Chawla <vin@tivo.com> 
  * @version 2.0
  */
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 
 
 import java.io.IOException;

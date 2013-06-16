@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cc.tooyoung.common.cache.MemcacheClient;
-import cc.tooyoung.memcache.vika.CasValue;
+import cc.tooyoung.memcache.naive.CasValue;
 
 
 /**

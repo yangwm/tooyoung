@@ -5,7 +5,7 @@ package cc.tooyoung.common.id;
 
 import java.util.Random;
 
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.id.UuidConst.BizFlag;
 import cc.tooyoung.common.util.ApiLogger;
 import cc.tooyoung.common.util.CommonUtil;
@@ -21,11 +21,11 @@ public class IdCreator implements IdCreate {
     public final static int RETRY_TIMES = 5;
     public final static Random randomGenerator = new Random();
     
-    private VikaCacheClient idGenerateClient;
+    private NaiveMemcacheClient idGenerateClient;
 
 
     /**
-     * 根据bizFlag获取uuid,每秒最大支持3.2w个id 
+     * 根据bizFlag获取uuid 
      * 
      * @param bizFlag
      * @return
@@ -69,10 +69,10 @@ public class IdCreator implements IdCreate {
 
     // getter setter 
 
-    public VikaCacheClient getIdGenerateClient() {
+    public NaiveMemcacheClient getIdGenerateClient() {
         return idGenerateClient;
     }
-    public void setIdGenerateClient(VikaCacheClient idGenerateClient) {
+    public void setIdGenerateClient(NaiveMemcacheClient idGenerateClient) {
         this.idGenerateClient = idGenerateClient;
     }
 

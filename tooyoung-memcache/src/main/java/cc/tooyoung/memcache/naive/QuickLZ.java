@@ -1,4 +1,4 @@
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 
 public class QuickLZ {
 	// The port is compatible with the C version with following settings:

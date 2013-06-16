@@ -14,7 +14,7 @@ import org.junit.Test;
 import cc.tooyoung.common.cache.MemcacheClient;
 import cc.tooyoung.common.cache.driver.MockMemcacheClient;
 import cc.tooyoung.common.util.ApiLogger;
-import cc.tooyoung.memcache.vika.CasValue;
+import cc.tooyoung.memcache.naive.CasValue;
 
 
 /**

@@ -12,20 +12,18 @@ import org.springframework.beans.factory.DisposableBean;
 import cc.tooyoung.common.cache.MemcacheClient;
 import cc.tooyoung.common.util.ApiLogger;
 import cc.tooyoung.common.util.TimeStatUtil;
-import cc.tooyoung.memcache.vika.CasValue;
-import cc.tooyoung.memcache.vika.ErrorHandler;
-import cc.tooyoung.memcache.vika.MemCachedClient;
-import cc.tooyoung.memcache.vika.SockIOPool;
+import cc.tooyoung.memcache.naive.CasValue;
+import cc.tooyoung.memcache.naive.ErrorHandler;
+import cc.tooyoung.memcache.naive.MemCachedClient;
+import cc.tooyoung.memcache.naive.SockIOPool;
 
 
 /**
  * use spring to manage life cycle, singleton design pattern
  * 
- * @author tim
- * @author modify by yangwm 2011-2013
- *
+ * @author yangwm Jun 16, 2013 11:18:28 PM （from tim's vika）  
  */
-public class VikaCacheClient implements MemcacheClient,DisposableBean{
+public class NaiveMemcacheClient implements MemcacheClient,DisposableBean{
 	protected final Logger log = Logger.getLogger(getClass());
 	
 	private MemCachedClient client = null;
@@ -106,7 +104,7 @@ public class VikaCacheClient implements MemcacheClient,DisposableBean{
 	}
 
 	public static final AtomicInteger poolCount = new AtomicInteger();
-	public VikaCacheClient() {
+	public NaiveMemcacheClient() {
 		this.poolName = "MCSockPool-" + String.valueOf(poolCount.incrementAndGet());
 		this.client = new MemCachedClient(poolName);
 		// client.setPoolName(poolName);

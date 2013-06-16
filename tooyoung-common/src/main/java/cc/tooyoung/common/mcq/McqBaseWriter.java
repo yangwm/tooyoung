@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import cc.tooyoung.common.CommonConst;
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.stat.StatLog;
 import cc.tooyoung.common.util.ApiLogger;
 import cc.tooyoung.common.util.Util;
@@ -21,13 +21,13 @@ import cc.tooyoung.common.util.Util;
 public class McqBaseWriter implements BaseWriter {
 	
     protected String writeKey;
-    protected List<VikaCacheClient> mcqWriters;
+    protected List<NaiveMemcacheClient> mcqWriters;
     
     // 是否按照value大小拆分写不同队列，默认不拆分
     protected boolean distinctBySize = false;
     protected int distinctBoundary= CommonConst.MCQ_512B_BOUNDARY;
     // 512Byte端口mcq写入List
-    protected List<VikaCacheClient> mcq512BWriters;
+    protected List<NaiveMemcacheClient> mcq512BWriters;
     
     private boolean logEnable = true;
     
@@ -71,7 +71,7 @@ public class McqBaseWriter implements BaseWriter {
         }
         writeMsg(mcqWriters, hashKey, key, msg);
     }
-    private void writeMsg(List<VikaCacheClient> writers, long hashKey, String key, Object msg) {
+    private void writeMsg(List<NaiveMemcacheClient> writers, long hashKey, String key, Object msg) {
         if(writers == null || writers.size() == 0){
             return;
         }
@@ -87,7 +87,7 @@ public class McqBaseWriter implements BaseWriter {
         boolean writeRs = false;
         for(int i = 0; i < writers.size(); i++){
             int index = (int)((i + hashKey) % writers.size());
-            VikaCacheClient mqWriter = writers.get(index);
+            NaiveMemcacheClient mqWriter = writers.get(index);
             
             try{
                 if(mqWriter.set(key, msg)){
@@ -129,7 +129,7 @@ public class McqBaseWriter implements BaseWriter {
         this.writeKey = writeKey;
     }
     
-    public void setMcqWriters(List<VikaCacheClient> mcqWriters) {
+    public void setMcqWriters(List<NaiveMemcacheClient> mcqWriters) {
         this.mcqWriters = mcqWriters;
     }
 
@@ -149,11 +149,11 @@ public class McqBaseWriter implements BaseWriter {
         this.distinctBoundary = distinctBoundary;
     }
 
-    public List<VikaCacheClient> getMcq512BWriters() {
+    public List<NaiveMemcacheClient> getMcq512BWriters() {
         return mcq512BWriters;
     }
 
-    public void setMcq512BWriters(List<VikaCacheClient> mcq512bWriters) {
+    public void setMcq512BWriters(List<NaiveMemcacheClient> mcq512bWriters) {
         mcq512BWriters = mcq512bWriters;
     }
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.stat.StatLog;
 import cc.tooyoung.common.util.CommonUtil;
 import cc.tooyoung.common.util.ApiLogger;
@@ -21,7 +21,7 @@ import cc.tooyoung.common.util.ApiLogger;
 public class McqMsgProcessor implements StartReadingAble{
 
     private String readKey;
-    private List<VikaCacheClient> mcqReaders;
+    private List<NaiveMemcacheClient> mcqReaders;
 
     //读取的线程数
     private int readThreadCountEachMcq = 3;
@@ -50,7 +50,7 @@ public class McqMsgProcessor implements StartReadingAble{
         }
         processorName = "McqMsgProcessor[" + msgHandler.getClass().getSimpleName() + "]";
         
-        for(VikaCacheClient mcqr : mcqReaders){              
+        for(NaiveMemcacheClient mcqr : mcqReaders){              
             int i = 0;
             while(i++ < readThreadCountEachMcq){
                 Thread t = createReadThread(mcqr);
@@ -60,7 +60,7 @@ public class McqMsgProcessor implements StartReadingAble{
         }
     }
 
-    protected Thread createReadThread(final VikaCacheClient mqr){
+    protected Thread createReadThread(final NaiveMemcacheClient mqr){
         Thread t = new Thread("thread_" + McqUtil.processorId.addAndGet(1) + "_mq_" + mqr.getServerPort()){
             @Override
             public void run() {             
@@ -71,7 +71,7 @@ public class McqMsgProcessor implements StartReadingAble{
         return t;
     }
     
-    protected void readFrmMQ(VikaCacheClient mqReader){
+    protected void readFrmMQ(NaiveMemcacheClient mqReader){
         // wait a moment for system init.
         McqUtil.waitForInit(processorName);
 
@@ -151,7 +151,7 @@ public class McqMsgProcessor implements StartReadingAble{
         errorMsgWriter.writeMsg(msg);
     }
 
-    public void setMcqReaders(List<VikaCacheClient> mcqReaders) {
+    public void setMcqReaders(List<NaiveMemcacheClient> mcqReaders) {
         this.mcqReaders = mcqReaders;
         /** TODO yangwm fix , need?? , but code is not beatiful  
         for(VikaCacheClient mcqr : mcqReaders){
@@ -199,7 +199,7 @@ public class McqMsgProcessor implements StartReadingAble{
     public void setProcessorName(String processorName) {
         this.processorName = processorName;
     }
-    public List<VikaCacheClient> getMcqReaders() {
+    public List<NaiveMemcacheClient> getMcqReaders() {
         return mcqReaders;
     }
     public int getReadThreadCountEachMcq() {

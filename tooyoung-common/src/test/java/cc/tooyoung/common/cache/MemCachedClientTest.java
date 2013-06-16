@@ -9,10 +9,10 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.collection.SortedVector;
 import cc.tooyoung.common.util.ApiLogger;
-import cc.tooyoung.memcache.vika.CasValue;
+import cc.tooyoung.memcache.naive.CasValue;
 
 /**
  * MemCached Client Test
@@ -190,7 +190,7 @@ public class MemCachedClientTest {
     }
     
     private MemcacheClient getMemcacheClient() {
-        VikaCacheClient vikaCacheClient = new VikaCacheClient();
+        NaiveMemcacheClient vikaCacheClient = new NaiveMemcacheClient();
         vikaCacheClient.setMinSpareConnections(2);
         vikaCacheClient.setMaxSpareConnections(15);
         vikaCacheClient.setConsistentHashEnable(false);

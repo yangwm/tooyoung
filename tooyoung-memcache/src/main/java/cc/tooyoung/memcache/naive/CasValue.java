@@ -1,4 +1,4 @@
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 
 public class CasValue<T> {
 

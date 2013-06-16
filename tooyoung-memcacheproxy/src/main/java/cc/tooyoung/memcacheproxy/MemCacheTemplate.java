@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import cc.tooyoung.common.cache.MemcacheClient;
 import cc.tooyoung.common.util.ApiLogger;
-import cc.tooyoung.memcache.vika.CasValue;
+import cc.tooyoung.memcache.naive.CasValue;
 
 /**
  * <b> To get MemCacheTemplate from m-s memcache. </b>

@@ -17,7 +17,7 @@
  * @author Kevin A. Burton <burton@peerfear.org> 
  * @version 2.0
  */
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 import java.io.IOException;
 
 /**

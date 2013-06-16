@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

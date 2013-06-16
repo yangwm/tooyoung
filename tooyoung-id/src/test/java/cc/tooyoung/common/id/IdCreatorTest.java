@@ -5,7 +5,7 @@ package cc.tooyoung.common.id;
 
 import org.junit.Test;
 
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.util.ApiLogger;
 
 /**
@@ -32,7 +32,7 @@ public class IdCreatorTest {
     private IdCreator createIdFactory(String idGenerateHost){
         IdCreator idCreator = new IdCreator();
         
-        VikaCacheClient idGenerateClient = new VikaCacheClient();
+        NaiveMemcacheClient idGenerateClient = new NaiveMemcacheClient();
         idGenerateClient.setServerPort(idGenerateHost);
         idGenerateClient.setPrimitiveAsString(true);
         idGenerateClient.init();

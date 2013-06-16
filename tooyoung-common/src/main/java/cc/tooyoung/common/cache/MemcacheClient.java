@@ -3,7 +3,7 @@ package cc.tooyoung.common.cache;
 import java.util.Date;
 import java.util.Map;
 
-import cc.tooyoung.memcache.vika.CasValue;
+import cc.tooyoung.memcache.naive.CasValue;
 
 
 /**

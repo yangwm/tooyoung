@@ -16,7 +16,7 @@
  * @author greg whalin <greg@meetup.com> 
  * @version 2.0
  */
-package cc.tooyoung.memcache.vika;
+package cc.tooyoung.memcache.naive;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

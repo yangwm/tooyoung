@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import cc.tooyoung.common.cache.driver.VikaCacheClient;
+import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 
 /**
  * 
@@ -47,9 +47,9 @@ public class BaseWriterTest {
         }
     }
     private BaseWriter getBaseWriter(String writeKey, String[] ips, int port) {
-        List<VikaCacheClient> mcqWriters = new ArrayList<VikaCacheClient>();
+        List<NaiveMemcacheClient> mcqWriters = new ArrayList<NaiveMemcacheClient>();
         for (String ip : ips) {
-            VikaCacheClient vikaCacheClient = new VikaCacheClient();
+            NaiveMemcacheClient vikaCacheClient = new NaiveMemcacheClient();
             vikaCacheClient.setMinSpareConnections(2);
             vikaCacheClient.setMaxSpareConnections(5);
             vikaCacheClient.setCompressEnable(false);
@@ -87,9 +87,9 @@ public class BaseWriterTest {
         }
     }
     private BaseWriter getBaseWriter(String writeKey, String[] ips, int port, int port2) {
-        List<VikaCacheClient> mcqWriters = new ArrayList<VikaCacheClient>();
+        List<NaiveMemcacheClient> mcqWriters = new ArrayList<NaiveMemcacheClient>();
         for (String ip : ips) {
-            VikaCacheClient vikaCacheClient = new VikaCacheClient();
+            NaiveMemcacheClient vikaCacheClient = new NaiveMemcacheClient();
             vikaCacheClient.setMinSpareConnections(2);
             vikaCacheClient.setMaxSpareConnections(5);
             vikaCacheClient.setCompressEnable(false);
@@ -98,9 +98,9 @@ public class BaseWriterTest {
             mcqWriters.add(vikaCacheClient);
         }
         
-        List<VikaCacheClient> mcq512bWriters = new ArrayList<VikaCacheClient>();
+        List<NaiveMemcacheClient> mcq512bWriters = new ArrayList<NaiveMemcacheClient>();
         for (String ip : ips) {
-            VikaCacheClient vikaCacheClient2 = new VikaCacheClient();
+            NaiveMemcacheClient vikaCacheClient2 = new NaiveMemcacheClient();
             vikaCacheClient2.setMinSpareConnections(2);
             vikaCacheClient2.setMaxSpareConnections(5);
             vikaCacheClient2.setCompressEnable(false);
