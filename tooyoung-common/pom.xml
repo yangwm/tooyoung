@@ -32,9 +32,14 @@
 		</dependency>
 		<dependency>
 			<groupId>cc.tooyoung</groupId>
+			<artifactId>tooyoung-db</artifactId>
+			<version>${tooyoung.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cc.tooyoung</groupId>
 			<artifactId>tooyoung-redis</artifactId>
 			<version>${tooyoung.version}</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

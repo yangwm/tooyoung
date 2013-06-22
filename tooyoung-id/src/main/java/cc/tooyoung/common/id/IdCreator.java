@@ -6,7 +6,6 @@ package cc.tooyoung.common.id;
 import java.util.Random;
 
 import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
-import cc.tooyoung.common.id.UuidConst.BizFlag;
 import cc.tooyoung.common.util.ApiLogger;
 import cc.tooyoung.common.util.CommonUtil;
 import cc.tooyoung.common.util.Util;
@@ -25,38 +24,35 @@ public class IdCreator implements IdCreate {
 
 
     /**
-     * 根据bizFlag获取uuid 
+     * 根据bizFlag获取id 
      * 
      * @param bizFlag
      * @return
      */
-    public long generateId(BizFlag bizFlag){
-    	return getNextId(bizFlag);
+    public long generateId(int bizFlagValue){
+    	return getNextId(bizFlagValue);
     }
     
     /**
-     * 从发号器获取uuid
-     * @see 如果bizFlag为null，则返回默认uuid，否则返回非默认uuid
+     * 从发号器获取id
+     * @see 如果bizFlag为null，则返回默认id，否则返回非默认id
      * @param bizFlag
      * @return
      */
-    private long getNextId(BizFlag bizFlag){
+    private long getNextId(int bizFlagValue){
     	for(int i = 0; i < RETRY_TIMES; i++){
             long nextId = 0;
             try {
-                String uuidKey = "id" + randomGenerator.nextInt();
-                if (bizFlag != null) {
-                    uuidKey = bizFlag.getValue() + uuidKey;
-                }
-                String uuid = (String) idGenerateClient.get(uuidKey);
+                String idKey = bizFlagValue + "id" + randomGenerator.nextInt();
+                String id = (String) idGenerateClient.get(idKey);
 //                if (ApiLogger.isDebugEnabled()) {
-//                    ApiLogger.debug("nextId idGenerateClient:" + idGenerateClient.getServerPort() + ", uuidKey:" + uuidKey + ", uuid:" + uuid);
+//                    ApiLogger.debug("nextId idGenerateClient:" + idGenerateClient.getServerPort() + ", idKey:" + idKey + ", id:" + id);
 //                }
-                nextId = Util.convertLong(uuid);
+                nextId = Util.convertLong(id);
             } catch (Exception e) {
                 ApiLogger.error("Error: in idGenerateClient get");
             }
-            if (UuidHelper.isValidId(nextId)) {
+            if (nextId > 0) {
             	return nextId;
             }
             CommonUtil.safeSleep(2 * i);
@@ -64,7 +60,7 @@ public class IdCreator implements IdCreate {
         }
         
         // FIXME 重连  
-        throw new IdCreateException("Error: false when get uuid from idGenerateClient:" + idGenerateClient.getServerPort());
+        throw new IdCreateException("Error: false when get id from idGenerateClient:" + idGenerateClient.getServerPort());
     }
 
     // getter setter 

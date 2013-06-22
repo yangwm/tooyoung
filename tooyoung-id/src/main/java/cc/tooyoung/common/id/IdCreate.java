@@ -3,7 +3,6 @@
  */
 package cc.tooyoung.common.id;
 
-import cc.tooyoung.common.id.UuidConst.BizFlag;
 
 /**
  * Id Create interface 
@@ -12,6 +11,6 @@ import cc.tooyoung.common.id.UuidConst.BizFlag;
  */
 public interface IdCreate {
 
-    long generateId(BizFlag bizFlag);
+    long generateId(int bizFlagValue);
     
 }

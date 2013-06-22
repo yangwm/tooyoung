@@ -3,8 +3,6 @@
  */
 package cc.tooyoung.common.id;
 
-import org.junit.Test;
-
 import cc.tooyoung.common.cache.driver.NaiveMemcacheClient;
 import cc.tooyoung.common.util.ApiLogger;
 
@@ -16,13 +14,13 @@ public class IdCreatorTest {
     
     //@Test
     public void testGenerateIdForUuid() {
-        IdCreator idCreator = createIdFactory("test1.weibao:5001,test2.weibao:5001");
+        IdCreator idCreator = createIdFactory("test1:5001,test2:5001");
         long t1 = System.currentTimeMillis();
         
         int count = 100;
         for(int i = 0; i < count; i++){
-            long id = idCreator.generateId(UuidConst.BizFlag.api);
-            UuidHelperTest.checkValid(id, true);
+            long id = idCreator.generateId(2);
+            ApiLogger.debug("IdCreatorTest testGenerateIdForUuid id:" + id); // UuidHelperTest.checkValid(id, true);
         }
         
         long t2 = System.currentTimeMillis();
