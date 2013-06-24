@@ -95,19 +95,19 @@ public class JsonWrapper {
         JsonNode node = root.get(name);
         return (node == null ? null : node.asText());
     }
-    public long getInt(String name){
+    public int getInt(String name) {
         JsonNode node = root.get(name);
         return (node == null ? null : node.asInt());
     }
-    public long getLong(String name){
+    public long getLong(String name) {
         JsonNode node = root.get(name);
         return (node == null ? null : node.asLong());
     }
-    public double getDouble(String name){
+    public double getDouble(String name) {
         JsonNode node = root.get(name);
         return (node == null ? null : node.asDouble());
     }
-    public boolean getBoolean(String name){
+    public boolean getBoolean(String name) {
         JsonNode node = root.get(name);
         return (node == null ? null : node.asBoolean());
     }

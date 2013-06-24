@@ -22,7 +22,7 @@ public class ContextLoaderListener implements ServletContextListener {
         System.out.println("begin init spring context.");
         ServletContext sc = event.getServletContext();
         String configLocation = sc.getInitParameter(CONFIG_LOCATION_PARAM);
-        if(configLocation == null){
+        if(configLocation == null) {
             System.out.println("can not find servlet init parameter:"+CONFIG_LOCATION_PARAM);
             //throw new Exception("can not find servlet init parameter:"+CONFIG_LOCATION_PARAM); // SystemInitException 
         }
@@ -30,7 +30,7 @@ public class ContextLoaderListener implements ServletContextListener {
         //为了兼容，默认允许 beanOverriding
         boolean allowBeanOverriding = "false".equalsIgnoreCase(beanOverriding)?false:true;
         System.out.println(ALLOW_BEAN_DEFINITION_OVERRIDING_PARAM+":"+allowBeanOverriding);
-        //通过 jvm进程的 -Dweibo.profile 参数决定是否启用profile
+        //通过 jvm进程的 -Dweb.profile 参数决定是否启用profile
         if("true".equalsIgnoreCase(System.getProperty("web.profile","false"))){
             System.out.println("web.profile is true,config:spring/profile.xml");
             if(!configLocation.endsWith(";")){
@@ -38,6 +38,7 @@ public class ContextLoaderListener implements ServletContextListener {
             }
             configLocation = configLocation +"classpath:spring/profile.xml";
         }
+        
         try{
             XmlWebApplicationContext ctx = new XmlWebApplicationContext();
             ctx.setParent(null);
@@ -47,12 +48,10 @@ public class ContextLoaderListener implements ServletContextListener {
             ctx.setConfigLocation(configLocation);
             ctx.refresh();
             ApplicationContextHolder.setApplicatioinContext(ctx);
-        }
-        catch(RuntimeException e){
+        } catch(RuntimeException e) {
             e.printStackTrace();
             throw e;
-        }
-        catch(Exception e){
+        } catch(Exception e) {
             e.printStackTrace();
         }
         System.out.println("spring context init finished.");

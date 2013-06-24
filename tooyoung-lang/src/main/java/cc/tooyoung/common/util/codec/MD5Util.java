@@ -3,7 +3,7 @@ package cc.tooyoung.common.util.codec;
 
 import java.security.MessageDigest;
 
-public class MD5Utils {
+public class MD5Util {
 
 	private static ThreadLocal<MessageDigest> MD5 = new ThreadLocal<MessageDigest>() {
 		@Override
@@ -38,10 +38,7 @@ public class MD5Utils {
 		}
 		return buf.toString();
 	}
-	public static void main(String[] args){
-		System.out.println(MD5Utils.md5("12312312312312"));
-	}
-	
+
 	public static String md5(long[] array){
 		return md5(long2Byte(array));
 	}
@@ -60,4 +57,10 @@ public class MD5Utils {
 		}
 		return byteArray;
 	}
+	
+	
+    public static void main(String[] args) {
+        System.out.println(MD5Util.md5("12312312312312"));
+    }
+
 }
