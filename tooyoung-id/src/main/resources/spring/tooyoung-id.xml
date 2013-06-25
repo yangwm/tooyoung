@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+    <!-- IdCreator for uuid -->
+	<bean id="uuidCreator" class="cc.tooyoung.common.id.IdCreator">
+        <property name="idGenerateClient">
+			<bean id="uuidGenerateClient" lazy-init="true" class="cc.tooyoung.common.cache.driver.NaiveMemcacheClient" init-method="init">
+				<property name="minSpareConnections" value= "2" />
+				<property name="maxSpareConnections" value= "15" />
+				<property name="failover" value= "true" />
+				<property name="primitiveAsString" value= "true" />
+				<property name="serverPort" value= "testuuid:5001,testuuid:5001" />
+			</bean>
+		</property>
+    </bean>
+
+    <!-- IdCreator for uid -->
+	<bean id="uidCreator" class="cc.tooyoung.common.id.IdCreator">
+        <property name="idGenerateClient">
+			<bean id="uidGenerateClient" lazy-init="true" class="cc.tooyoung.common.cache.driver.NaiveMemcacheClient" init-method="init">
+				<property name="minSpareConnections" value= "2" />
+				<property name="maxSpareConnections" value= "15" />
+				<property name="failover" value= "true" />
+				<property name="primitiveAsString" value= "true" />
+				<property name="serverPort" value= "testuid:5101,testuid:5101" />
+			</bean>
+		</property>
+    </bean>
+
+</beans>

@@ -18,16 +18,19 @@
 	</appender>
 
 	<category name="org" additivity="true">
-		<priority value="INFO" />
+		<priority value="WARN" />
+	</category>
+	<category name="com.mchange" additivity="true">
+		<priority value="WARN" />
 	</category>
 	<category name="httpclient" additivity="true">
-		<priority value="INFO" />
+		<priority value="WARN" />
 	</category>
 	<category name="net" additivity="true">
-		<priority value="INFO" />
+		<priority value="WARN" />
 	</category>
 	<category name="cc.tooyoung.memcache" additivity="true">
-		<priority value="INFO" />
+		<priority value="WARN" />
 	</category>
 
 	<root>
