@@ -17,8 +17,8 @@ import cc.tooyoung.common.util.Util;
  */
 public class IdCreator implements IdCreate {
     
-    public final static int RETRY_TIMES = 5;
-    public final static Random randomGenerator = new Random();
+    private final static int RETRY_TIMES = 5;
+    private final static Random randomGenerator = new Random();
     
     private NaiveMemcacheClient idGenerateClient;
 
@@ -52,6 +52,7 @@ public class IdCreator implements IdCreate {
             } catch (Exception e) {
                 ApiLogger.error("Error: in idGenerateClient get");
             }
+            
             if (nextId > 0) {
             	return nextId;
             }
