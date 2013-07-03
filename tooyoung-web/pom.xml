@@ -97,6 +97,12 @@
 		            <artifactId>spring-context</artifactId>  
 		        </exclusion>  
 		    </exclusions>  
-		</dependency>  
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 </project>

@@ -34,11 +34,11 @@ public class WebApiException extends RuntimeException {
     }
 
     public WebApiException(Exception e) {
-        this(ExcepFactor.E_DEFAULT, e.getMessage());
+        this(ExcepFactor.E_SYSTEM_DEFAULT, e.getMessage());
     }
 
     public WebApiException(String message) {
-        this(ExcepFactor.E_DEFAULT, message);
+        this(ExcepFactor.E_SYSTEM_DEFAULT, message);
     }
 
     public void setTraceHeader(String name, Object value) {

@@ -18,6 +18,7 @@
 		
 		<module>tooyoung-db</module>
 		<module>tooyoung-memcacheproxy</module>
+		<module>tooyoung-ext</module>
 		<module>tooyoung-web</module>
 	</modules>
 

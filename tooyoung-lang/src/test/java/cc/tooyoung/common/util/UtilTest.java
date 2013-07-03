@@ -36,6 +36,10 @@ public class UtilTest {
 	}
 
 	@Test
+    public void testUrlEncoder() {
+        assertEquals("%2C",Util.urlEncoder(",", "UTF-8"));
+    }
+	@Test
 	public void testUrlDecoder() {
 		assertEquals(",",Util.urlDecoder("%2C", "UTF-8"));
 	}
