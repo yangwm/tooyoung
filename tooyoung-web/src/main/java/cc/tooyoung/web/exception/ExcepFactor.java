@@ -78,6 +78,9 @@ public class ExcepFactor {
             ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 1,
             "service error!", "服务错误!");
     
+    public static final ExcepFactor E_ILLEGAL_UPDATE = new ExcepFactor(
+            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 2,
+            "invalid update!", "无效更新操作!");
     /** 用户不存在 */
     public static final ExcepFactor E_USER_NOT_EXIST = new ExcepFactor(
             ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 3,
@@ -88,15 +91,15 @@ public class ExcepFactor {
     
     /** 图片格式不对 */
     public static final ExcepFactor E_INPUT_IMAGE_ERROR = new ExcepFactor(
-            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 5,
+            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 15,
             "unsupported image type, only suport JPG, GIF, PNG!", "不支持的图片类型,仅仅支持JPG,GIF,PNG!");
     /** 图片太大 */
     public static final ExcepFactor E_INPUT_IMAGESIZE_ERROR = new ExcepFactor(
-            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 6,
+            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 16,
             "image size too large.", "图片太大。");
     /** 没有上传图片 */
     public static final ExcepFactor E_INPUT_NO_IMAGE = new ExcepFactor(
-            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 7,
+            ERROR_LEVEL_SERVICE, 0, HttpStatus.BAD_REQUEST, 17,
             "does multipart has image?", "请确保使用multpart上传了图片!");
 
     private final HttpStatus httpStatus;

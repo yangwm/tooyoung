@@ -10,6 +10,7 @@ package cc.tooyoung.common;
 public class CommonConst {
     
     public static final String UTF8 = "UTF-8";
+    public static final String Comma = ",";
 
     /**
      * 512B类型mcq可写入消息最大长度

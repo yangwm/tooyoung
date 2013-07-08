@@ -9,8 +9,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 
-import cc.tooyoung.common.json.JsonUtil;
+import cc.tooyoung.common.CommonConst;
 
 /**
  * array util 
@@ -78,68 +79,25 @@ public class ArrayUtil {
         return idsArr;
     }
     
-    public static String longArrToPrintableString(long[] longArr) {
-        StringBuilder value = new StringBuilder();
-        value.append("[");
-        if (null != longArr && longArr.length > 0) {
-            for (long l : longArr) {
-                value.append(l).append(",");
-            }
-            value.setLength(value.length() - 1);
-        }
-        value.append("]");
-        return value.toString();
+    public static String[] splitSimpleString(String str) {
+        return StringUtils.split(str, CommonConst.Comma);
     }
-    
-    public static String stringArrToPrintableString(String[] objectArr) {
-        StringBuilder value = new StringBuilder();
-        value.append("[");
-        if (null != objectArr && objectArr.length > 0) {
-            for (String s : objectArr) {
-                value.append(s).append(",");
-            }
-            value.setLength(value.length() - 1);
-        }
-        value.append("]");
-        return value.toString();
-    }
-
-    @Deprecated
-    public static String arrayToString(long[] ids){
-        StringBuilder sbuf = new StringBuilder(ids.length * 8);
-        for(long id : ids){
-            sbuf.append(id).append(",");
-        }
-        return sbuf.toString();
-    }
-    
-    public static String toSimpleString(long[] arrs) {
-        if (arrs == null) {
+    public static String toSimpleString(long a[]) {
+        if (a == null) {
             return "";
         }
-        int iMax = arrs.length - 1;
+        int iMax = a.length - 1;
         if (iMax == -1) {
             return "";
         }
 
         StringBuilder b = new StringBuilder();
         for (int i = 0;; i++) {
-            b.append(arrs[i]);
+            b.append(a[i]);
             if (i == iMax)
                 return b.toString();
-            b.append(",");
+            b.append(CommonConst.Comma);
         }
-    }
-    
-    /**
-     * see cn.sina.api.commons.util.JsonUtil.toJson  
-     * 
-     * @param ids
-     * @return
-     */
-    @Deprecated
-    public static String toJSONStr(long[] ids){
-        return JsonUtil.toJson(ids);
     }
 
     public static void reverse(long[] b) {
