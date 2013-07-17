@@ -22,8 +22,8 @@ public class UidCreatorTest extends TestBase {
         
         int count = 100;
         for(int i = 0; i < count; i++){
-            long id = idCreator.generateId(2);
-            ApiLogger.debug("UidCreatorTest testGenerateId id:" + id); // UidHelperTest.checkValid(id, true);
+            long id = idCreator.generateId(1); // 193987180
+            ApiLogger.debug("UidCreatorTest testGenerateId id:" + id);
         }
         
         long t2 = System.currentTimeMillis();

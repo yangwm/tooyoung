@@ -36,13 +36,15 @@ public class JsonBuilder {
 			return this;
 		}
 		
-		if (sb.length() > 1)
+		if (sb.length() > 1) {
 			sb.append(",");
+		}
 		sb.append("\"").append(name).append("\":");
-		if (value != null)
+		if (value != null) {
 			sb.append("\"").append(JsonUtil.toJsonStr(value)).append("\"");
-		else
-			sb.append("null");
+		} else {
+			sb.append(value);
+		}
 		
 		return this;
 	}
@@ -128,8 +130,9 @@ public class JsonBuilder {
 	}
 	
 	public JsonBuilder appendStrArr(String name, long[] values) {
-        if (name == null)
+	    if (name == null) {
             return this;
+        }
         
         if (sb.length() > 1) {
             sb.append(",");
@@ -153,8 +156,9 @@ public class JsonBuilder {
     }
 	
 	public JsonBuilder appendArr(String name, Jsonable[] values) {
-        if (name == null)
+	    if (name == null) {
             return this;
+        }
         
         if (sb.length() > 1) {
             sb.append(",");
@@ -172,8 +176,9 @@ public class JsonBuilder {
 	 * @return	如果List不为空，则返回按照","分割的字符串，否则返回"[]"
 	 */
 	public JsonBuilder appendLongList(String name, List<Long> values) {
-		if (name == null)
+		if (name == null) {
 			return this;
+		}
 		
 		if (sb.length() > 1) {
 			sb.append(",");
@@ -197,8 +202,9 @@ public class JsonBuilder {
 	}
 	
 	public JsonBuilder appendObject(String name, String[] value) {
-		if (name == null)
-			return this;
+	    if (name == null) {
+            return this;
+        }
 		
 		if (sb.length() > 1) {
 			sb.append(",");
@@ -223,8 +229,9 @@ public class JsonBuilder {
 	}
 	
 	public JsonBuilder append(String name, boolean value) {
-		if (name == null)
+		if (name == null) {
 			return this;
+		}
 		
 		if (sb.length() > 1) {
 			sb.append(",");
@@ -267,8 +274,9 @@ public class JsonBuilder {
 	 * @return
 	 */
 	public JsonBuilder appendJsonValue(String name, String jsonValue) {
-		if (name == null || jsonValue == null)
+		if (name == null || jsonValue == null) {
 			return this;
+		}
 		
 		if (sb.length() > 1) {
 			sb.append(",");

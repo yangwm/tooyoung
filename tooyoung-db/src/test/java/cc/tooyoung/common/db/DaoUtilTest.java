@@ -35,9 +35,11 @@ public class DaoUtilTest {
 
 	@Test
 	public void testCreateMutiGetSql() {
-        String sql = "select a,b from table where a in";
+        String sql = "select a,b from table where a in ";
         int paramsSize = 10;
         String result = DaoUtil.createMutiGetSql(sql, paramsSize);
+        ApiLogger.debug("testCreateMutiGetSql result:" + result);
+        
         int count = 0;
         char[] chs = result.toCharArray();
         for (char ch : chs) {
