@@ -109,7 +109,7 @@ public class ExcepFactor {
     private final String errorMsg;
     private final String errorMsgCn;
 
-    private ExcepFactor(int level, int serviceId, HttpStatus httpStatus,
+    protected ExcepFactor(int level, int serviceId, HttpStatus httpStatus,
             int errorCode, String errorMsg, String errorMsgCn) {
         if (errorCode <= 0 || errorCode > 99) {
             throw new IllegalArgumentException("errorCode must between 1~99 .");
