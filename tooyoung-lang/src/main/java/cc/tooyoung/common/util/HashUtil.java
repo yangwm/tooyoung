@@ -3,6 +3,8 @@
  */
 package cc.tooyoung.common.util;
 
+import cc.tooyoung.common.util.codec.Crc32Util;
+
 
 
 
@@ -31,7 +33,7 @@ public class HashUtil {
         if (hashAlg == null || HashAlg.NONE.equals(hashAlg)) {
             ;
         } else if (HashAlg.CRC32.equals(hashAlg)) {
-            h = CommonUtil.getCrc32(String.valueOf(id));
+            h = Crc32Util.getCrc32(String.valueOf(id));
         } else {
             ApiLogger.warn("HashUtil getHash HashAlg warn, id:" + id + ", hashAlg:" + hashAlg);
         }
